@@ -60,3 +60,15 @@ TEST_F(StrassenTestFixture, MultiplyByIdentity) {
     // Assert
     ASSERT_EQ(result, A_4x4);
 }
+
+
+TEST_F(StrassenTestFixture, MultiplyByZeroMatrix) {
+    // Arrange: Створюємо матрицю А та нульову матрицю Z
+    Matrix Z_4x4(4, 4);
+
+    // Act:
+    Matrix result = Strassen::multiply(A_4x4, Z_4x4);
+
+    // Assert: Перевіряємо, що результат -- це нульова матриця
+    ASSERT_EQ(result, Z_4x4);
+}

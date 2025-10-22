@@ -46,3 +46,23 @@ TEST(ComplexTest, EqualityWithEpsilon) {
     // Перевіряємо, що наш operator== теж працює для очевидно нерівних чисел
     ASSERT_NE(a, c);
 }
+
+
+TEST(ComplexTest, MultiplicationWithNegativeAndZero) {
+    // Arrange
+    Complex a(-2, 3);
+    Complex b(4, -5);
+    // ((-2)*4 - 3*(-5)) + ((-2)*(-5) + 3*4)i
+    // = (-8 - (-15)) + (10 + 12)i
+    // = (-8 + 15) + 22i = 7 + 22i
+    Complex expected_ab(7, 22);
+
+    Complex c(5, 0);  // Чисто дійсне число
+    Complex d(0, -2); // Чисто уявне число
+    // (5*0 - 0*(-2)) + (5*(-2) + 0*0)i = 0 + (-10)i
+    Complex expected_cd(0, -10);
+
+    // Act & Assert
+    ASSERT_EQ(a * b, expected_ab);
+    ASSERT_EQ(c * d, expected_cd);
+}
