@@ -65,3 +65,14 @@ TEST(StrassenEdgeCaseTest, SingleElement_1x1) {
     // Assert
     ASSERT_EQ(strassenResult, classicResult);
 }
+
+
+TEST(StrassenEdgeCaseTest, ThrowsOnMismatchedMultiplication) {
+    // Arrange
+    Matrix A(3, 4);
+    Matrix B(5, 2);
+
+    // Act & Assert
+    // Перевіряємо, що виклик Strassen::multiply кидає виняток
+    ASSERT_THROW(Strassen::multiply(A, B), std::invalid_argument);
+}

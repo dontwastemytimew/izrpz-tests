@@ -31,6 +31,7 @@ add_executable(main src/main.cpp
         tests/test_matrix.cpp
         tests/test_strassen.cpp
         tests/test_strassen_edge_cases.cpp
+        tests/test_matrix_helpers.cpp
 )
 
 target_link_libraries(main PRIVATE strassen_lib)
@@ -45,6 +46,7 @@ add_executable(run_tests
         tests/test_strassen.cpp
         tests/test_strassen_edge_cases.cpp
         tests/test_helpers.cpp
+        tests/test_matrix_helpers.cpp
 
 )
 
