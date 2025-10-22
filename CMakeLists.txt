@@ -30,7 +30,8 @@ target_include_directories(strassen_lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)
 add_executable(main src/main.cpp
         tests/test_matrix.cpp
         tests/test_strassen.cpp
-        tests/test_strassen_edge_cases.cpp)
+        tests/test_strassen_edge_cases.cpp
+)
 
 target_link_libraries(main PRIVATE strassen_lib)
 
@@ -43,6 +44,7 @@ add_executable(run_tests
         tests/test_matrix.cpp
         tests/test_strassen.cpp
         tests/test_strassen_edge_cases.cpp
+        tests/test_helpers.cpp
 
 )
 
