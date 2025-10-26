@@ -9,8 +9,8 @@ TEST(MatrixTest, ConstructorAndAccess) {
     A.at(1, 2) = Complex(5, 5);
 
     // Assert: Перевіряємо розміри та значення
-    ASSERT_EQ(A.rows, 2);
-    ASSERT_EQ(A.cols, 3);
+    ASSERT_EQ(A.getRows(), 2);
+    ASSERT_EQ(A.getCols(), 3);
     ASSERT_EQ(A.at(0, 0), Complex(1, 1));
     ASSERT_EQ(A.at(1, 2), Complex(5, 5));
     ASSERT_EQ(A.at(0, 1), Complex(0, 0)); // Перевіряємо, що інші елементи - нулі

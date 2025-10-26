@@ -5,7 +5,7 @@
 #include <ostream>
 
 // Константа для коректного порівняння чисел double
-const double EPSILON = 1e-8;
+constexpr double EPSILON = 1e-8;
 
 // Клас для комплексного числа (a + bi)
 class Complex {

@@ -45,8 +45,8 @@ TEST(StrassenEdgeCaseTest, RectangularMatrices_3x5_mul_5x2) {
     Matrix classicResult = A.multiplyClassic(B);
 
     // Assert
-    ASSERT_EQ(strassenResult.rows, 3);
-    ASSERT_EQ(strassenResult.cols, 2);
+    ASSERT_EQ(strassenResult.getRows(), 3);
+    ASSERT_EQ(strassenResult.getCols(), 2);
     ASSERT_EQ(strassenResult, classicResult);
 }
 
