@@ -20,8 +20,8 @@ namespace Strassen {
     // Створює нову матрицю newSize x newSize і копіює в неї стару
     Matrix padMatrix(const Matrix& A, int newSize) {
         Matrix A_pad(newSize, newSize); // Створюється заповнена нулями
-        for (int i = 0; i < A.rows; i++)
-            for (int j = 0; j < A.cols; j++)
+        for (int i = 0; i < A.getRows(); i++)
+            for (int j = 0; j < A.getCols(); j++)
                 A_pad.data[i][j] = A.data[i][j];
         return A_pad;
     }
@@ -36,7 +36,7 @@ namespace Strassen {
     }
 
     Matrix strassenRecursive(const Matrix& A, const Matrix& B) {
-        int n = A.rows;
+        int n = A.getRows();
 
         // Базовий випадок рекурсії
         if (n <= RECURSION_THRESHOLD) {
@@ -76,12 +76,12 @@ namespace Strassen {
     }
 
     Matrix multiply(const Matrix& A, const Matrix& B) {
-        if (A.cols != B.rows) {
+        if (A.getCols() != B.getRows()) {
             throw std::invalid_argument("Incompatible dimensions for multiplication");
         }
 
         // Знаходимо найбільший розмір і наступний степінь двійки
-        int n_max = std::max({A.rows, A.cols, B.rows, B.cols});
+        int n_max = std::max({A.getRows(), A.getCols(), B.getRows(), B.getCols()});
         int m = nextPowerOfTwo(n_max);
 
         // Доповнюємо матриці нулями до розміру m x m
@@ -90,7 +90,7 @@ namespace Strassen {
 
         Matrix C_pad = strassenRecursive(A_pad, B_pad);
 
-        return unpadMatrix(C_pad, A.rows, B.cols);
+        return unpadMatrix(C_pad, A.getRows(), B.getCols());
     }
 
 }

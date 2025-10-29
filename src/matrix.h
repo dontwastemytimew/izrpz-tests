@@ -7,7 +7,6 @@
 // Клас для матриці комплексних чисел
 class Matrix {
 public:
-    int rows, cols;
     std::vector<std::vector<Complex>> data;
 
     Matrix(int r = 0, int c = 0);
@@ -16,6 +15,9 @@ public:
     // Кидає виняток std::out_of_range, якщо індекси некоректні
     Complex& at(int r, int c);
     const Complex& at(int r, int c) const;
+
+    int getRows() const;
+    int getCols() const;
 
     // Оператори
     // Поелементне додавання матриць
@@ -34,6 +36,9 @@ public:
     static void split(const Matrix& M, Matrix& M11, Matrix& M12, Matrix& M21, Matrix& M22);
     // Збирає одну велику матрицю M з 4-х чвертей
     static void combine(Matrix& M, const Matrix& M11, const Matrix& M12, const Matrix& M21, const Matrix& M22);
+
+private:
+    int rows, cols;
 };
 
 // Перевантаження оператора << для друку Matrix у потік

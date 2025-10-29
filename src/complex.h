@@ -5,7 +5,7 @@
 #include <ostream>
 
 // Константа для коректного порівняння чисел double
-const double EPSILON = 1e-9;
+constexpr double EPSILON = 1e-8;
 
 // Клас для комплексного числа (a + bi)
 class Complex {
@@ -31,9 +31,10 @@ public:
 
     // Оператори порівняння
     bool operator==(const Complex& other) const {
-        return std::abs(re - other.re) < EPSILON &&
-               std::abs(im - other.im) < EPSILON;
+        return std::abs(re - other.re) <= EPSILON &&
+               std::abs(im - other.im) <= EPSILON;
     }
+
     
     bool operator!=(const Complex& other) const {
         return !(*this == other);
