@@ -13,7 +13,7 @@
 
 Детальна документація коду, згенерована Doxygen, автоматично публікується та доступна на GitHub Pages за посиланням:
 
-
+https://dontwastemytimew.github.io/izrpz-tests/
 
 ---
 
