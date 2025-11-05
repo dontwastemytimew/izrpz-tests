@@ -25,12 +25,10 @@ public:
      * Гарантує, що всі елементи будуть ініціалізовані нулями
      * (Complex(0,0)) завдяки конструктору std::vector.
      *
+     * @example matrix_constructor.cpp
+     *
      * @param r Кількість рядків.
      * @param c Кількість стовпців.
-     * @example
-     * @code
-     * Matrix m(3, 3); // Створює матрицю 3x3, заповнену нулями.
-     * @endcode
      */
     Matrix(int r = 0, int c = 0);
 
