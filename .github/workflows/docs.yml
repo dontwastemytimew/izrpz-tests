@@ -3,7 +3,7 @@ name: Deploy Doxygen Docs to GitHub Pages
 on:
   push:
     branches:
-      - main
+      - feature/docs-ci
   workflow_dispatch:
 
 permissions:
