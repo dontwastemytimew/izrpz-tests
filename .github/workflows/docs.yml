@@ -24,6 +24,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y doxygen
 
+
       - name: Generate Doxygen
         run: doxygen Doxyfile
 
