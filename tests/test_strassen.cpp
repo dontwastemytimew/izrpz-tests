@@ -31,45 +31,32 @@ protected:
 };
 
 TEST_F(StrassenTestFixture, StrassenVsClassic2x2) {
-    // Arrange
-
-    // Act
     Matrix strassenResult = Strassen::multiply(A_2x2, B_2x2);
     Matrix classicResult = A_2x2.multiplyClassic(B_2x2);
 
-    // Assert
     ASSERT_EQ(strassenResult, classicResult);
 }
 
 TEST_F(StrassenTestFixture, StrassenVsClassic4x4) {
-    // Arrange
-
-    // Act
     Matrix strassenResult = Strassen::multiply(A_4x4, A_4x4);
     Matrix classicResult = A_4x4.multiplyClassic(A_4x4);
 
-    // Assert
     ASSERT_EQ(strassenResult, classicResult);
 }
 
 TEST_F(StrassenTestFixture, MultiplyByIdentity) {
-    // Arrange
-
-    // Act
     Matrix result = Strassen::multiply(A_4x4, I_4x4);
 
-    // Assert
     ASSERT_EQ(result, A_4x4);
 }
 
 
 TEST_F(StrassenTestFixture, MultiplyByZeroMatrix) {
-    // Arrange: Створюємо матрицю А та нульову матрицю Z
+    // Створюємо матрицю А та нульову матрицю Z
     Matrix Z_4x4(4, 4);
 
-    // Act:
     Matrix result = Strassen::multiply(A_4x4, Z_4x4);
 
-    // Assert: Перевіряємо, що результат -- це нульова матриця
+    // Перевіряємо, що результат -- це нульова матриця
     ASSERT_EQ(result, Z_4x4);
 }

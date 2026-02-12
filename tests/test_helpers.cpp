@@ -13,7 +13,6 @@ TEST_P(NextPowerOfTwoTest, HandlesVariousInputs) {
     int input = std::get<0>(GetParam());
     int expected = std::get<1>(GetParam());
 
-    // Act & Assert
     ASSERT_EQ(Strassen::nextPowerOfTwo(input), expected);
 }
 
