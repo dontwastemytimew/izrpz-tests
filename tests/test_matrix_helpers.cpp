@@ -2,7 +2,6 @@
 #include "../src/Matrix.h"
 
 TEST(MatrixHelpersTest, SplitAndCombine) {
-    // Arrange:
     Matrix Original(4, 4);
     for (int i = 0; i < 4; ++i) {
         for (int j = 0; j < 4; ++j) {
@@ -10,20 +9,20 @@ TEST(MatrixHelpersTest, SplitAndCombine) {
         }
     }
 
-    // Act (Split): Розділяємо її на 4 чверті
+    // (Split): Розділяємо її на 4 чверті
     Matrix M11(2, 2), M12(2, 2), M21(2, 2), M22(2, 2);
     Matrix::split(Original, M11, M12, M21, M22);
 
-    // Assert (Split): Перевіряємо, чи кожна чверть скопіювалась правильно
+    // (Split): Перевіряємо, чи кожна чверть скопіювалась правильно
     ASSERT_EQ(M11.at(0, 0), Complex(0, 0)); // Верхній лівий кут
     ASSERT_EQ(M12.at(0, 1), Complex(0, 3)); // Верхній правий
     ASSERT_EQ(M21.at(1, 0), Complex(3, 0)); // Нижній лівий
     ASSERT_EQ(M22.at(1, 1), Complex(3, 3)); // Нижній правий
 
-    // Act (Combine): Збираємо матрицю назад з цих чвертей
+    // (Combine): Збираємо матрицю назад з цих чвертей
     Matrix Recombined(4, 4);
     Matrix::combine(Recombined, M11, M12, M21, M22);
 
-    // Assert (Combine): Перевіряємо, що зібрана матриця ідентична вихідній
+    // (Combine): Перевіряємо, що зібрана матриця ідентична вихідній
     ASSERT_EQ(Original, Recombined);
 }
